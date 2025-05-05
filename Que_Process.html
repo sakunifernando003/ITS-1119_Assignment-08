@@ -2,10 +2,157 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Case_1</title>
+    <title>Title</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0
+
+        }
+
+        body{
+            background-color:white;
+            overflow: hidden;
+        }
+
+
+
+        section:nth-child(1){
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        section:nth-child(1)>div{
+            width: fit-content;
+            height: fit-content;
+            padding: 28px 13px;
+        }
+
+        .man{
+            width: 200px;
+        }
+
+        #title{
+            font-size: 70px;
+            position: absolute;
+            top: -190px;
+            padding: 10px 500px;
+            color: black;
+            margin-top: 40px;
+        }
+
+        h2{
+            font-size: 35px;
+            font-family: cursive;
+        }
+
+        section:nth-child(2){
+            width: fit-content;
+            height: fit-content;
+            margin: 15px 754px;
+            display: flex;
+        }
+
+        button{
+            left: -180px;
+            width: 100px;
+            height: 50px;
+            padding: 10px 32px;
+            margin: 19px;
+            position: relative;
+            top: 450px;
+            background-color: blue;
+            font-size: 22px;
+            font-weight: bold;
+            color: azure;
+        }
+        img{
+            width: 10px;
+            height: 200px;
+            background-color: white;
+        }
+
+    </style>
 </head>
 <body>
-<div></div>
+<section>
+    <h1 id="title">JS QUE</h1>
 
+    <div>
+        <h2 id="letter1">A</h2>
+        <img class="man" src="assets/giphy.gif" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter2">B</h2>
+        <img class="man" src="assets/giphy.gif" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter3">C</h2>
+        <img class="man" src="assets/giphy.gif" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter4">D</h2>
+        <img class="man" src="assets/giphy.gif" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter5">E</h2>
+        <img class="man" src="assets/giphy.gif" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter6">F</h2>
+        <img class="man" src="assets/giphy.gif" alt="">
+    </div>
+</section>
+
+<section>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</section>
+
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+    var letters = ["A" , "B" , "C" , "D" , "E" , "F"];
+
+    function Move(){
+        let lastVal = letters.pop();
+        letters.unshift(lastVal);
+
+        $("#letter1").text(letters[0]);
+        $("#letter2").text(letters[1]);
+        $("#letter3").text(letters[2]);
+        $("#letter4").text(letters[3]);
+        $("#letter5").text(letters[4]);
+        $("#letter6").text(letters[5]);
+
+    }
+
+    var interval = null;
+
+    $("#start").on("click",() =>{
+        interval  = setInterval(Move,900);
+    });
+
+    $("#stop").on("click",() =>{
+        clearInterval(interval)
+    });
+
+
+</script>
 </body>
 </html>
